@@ -7,13 +7,7 @@ class MangaCardCatalog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Column(
-        children: [
-          Image.asset('boxer.jpg'),
-          SizedBox(height: 8),
-          Text('Type'),
-          Text('Title'),
-          Row(),
-        ],
+        children: [SizedBox(height: 8), Text('Type'), Text('Title'), Row()],
       ),
     );
   }
