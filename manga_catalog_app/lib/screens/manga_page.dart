@@ -182,7 +182,9 @@ class _CommentsSectionState extends State<CommentsSection> {
             } else if (snapshot.hasError) {
               return Center(child: Text('Error: ${snapshot.error}'));
             } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-              return Center(child: Text('No comments yet'));
+              return Center(
+                child: Text('No comments yet', style: TextStyle(fontSize: 16)),
+              );
             }
 
             List<Map<String, dynamic>> comments = snapshot.data!;

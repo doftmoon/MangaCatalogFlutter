@@ -65,7 +65,7 @@ class _CatalogPageState extends State<CatalogPage> {
                     ),
                   ),
                   child: Text(
-                    'Search',
+                    '',
                     style: TextStyle(fontSize: 16, color: Colors.white70),
                   ),
                 ),
@@ -165,7 +165,7 @@ class _CatalogPageState extends State<CatalogPage> {
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: crossAxisCount, // Количество столбцов
-                    childAspectRatio: 0.7, // Соотношение сторон карточки
+                    childAspectRatio: 0.5, // Соотношение сторон карточки
                   ),
                   itemCount: filteredMangas.length,
                   itemBuilder: (context, index) {
@@ -183,20 +183,42 @@ class _CatalogPageState extends State<CatalogPage> {
                       },
                       child: Card(
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.network(
-                              filteredMangas[index].imageUrl,
-                              height: 100,
-                              fit: BoxFit.cover,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                filteredMangas[index].title,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                            Center(
+                              child: Image.network(
+                                filteredMangas[index].imageUrl,
+                                height: 180,
+                                fit: BoxFit.cover,
                               ),
                             ),
-                            Text(filteredMangas[index].author),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 8,
+                                top: 4,
+                                right: 8,
+                                bottom: 4,
+                              ),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    filteredMangas[index].title,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                  ),
+                                  Text(
+                                    filteredMangas[index].author,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),

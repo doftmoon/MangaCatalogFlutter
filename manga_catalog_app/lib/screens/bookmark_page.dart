@@ -50,7 +50,7 @@ class BookmarkPage extends StatelessWidget {
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: crossAxisCount, // Количество столбцов
-                  childAspectRatio: 0.7, // Соотношение сторон карточки
+                  childAspectRatio: 0.5, // Соотношение сторон карточки
                 ),
                 itemCount: mangas.length,
                 itemBuilder: (context, index) {
@@ -66,20 +66,37 @@ class BookmarkPage extends StatelessWidget {
                     },
                     child: Card(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.network(
-                            mangas[index].imageUrl,
-                            height: 100,
-                            fit: BoxFit.cover,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              mangas[index].title,
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                          Center(
+                            child: Image.network(
+                              mangas[index].imageUrl,
+                              height: 180,
+                              fit: BoxFit.cover,
                             ),
                           ),
-                          Text(mangas[index].author),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 8,
+                              top: 4,
+                              right: 8,
+                              bottom: 4,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  mangas[index].title,
+                                  style: TextStyle(fontWeight: FontWeight.w800),
+                                ),
+                                Text(
+                                  mangas[index].author,
+                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
